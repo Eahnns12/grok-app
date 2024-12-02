@@ -12,7 +12,7 @@ const App = () => {
       {isWindowControlsOverlay && <TitleBar />}
 
       <section
-        className="flex-1 mt-[env(titlebar-area-height)] select-none"
+        className="flex-1 mt-[env(titlebar-area-height)] select-none ease-linear duration-300"
         style={{ contain: "strict" }}
       >
         <Drawer>
@@ -21,7 +21,7 @@ const App = () => {
               <SidebarTrigger />
               <ThemeController />
             </nav>
-            <main className="flex-1 bg-red-500 m-2">APP</main>
+            <main className="flex-1 bg-red-500 m-2">app</main>
           </div>
         </Drawer>
       </section>
