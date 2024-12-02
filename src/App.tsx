@@ -1,5 +1,5 @@
-import { useMediaQuery } from "./hooks/media-query-hook";
-import { TitleBar } from "./views/title-bar";
+import { useMediaQuery } from "@/hooks/media-query-hook";
+import { TitleBar } from "@/containers/title-bar";
 
 const App = () => {
   const { isWindowControlsOverlay } = useMediaQuery();

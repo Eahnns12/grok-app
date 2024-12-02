@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 
-const useMediaQuery = () => {
+const useMediaQuery = (): { isWindowControlsOverlay: boolean } => {
   const [isWindowControlsOverlay, setIsWindowControlsOverlay] =
-    useState<boolean>();
+    useState<boolean>(false);
 
   function handleWindowControlsOverlay(event: MediaQueryListEvent) {
     setIsWindowControlsOverlay(event.matches);
