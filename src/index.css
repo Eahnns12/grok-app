@@ -79,3 +79,13 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.region-dragable {
+  app-region: drag;
+  -webkit-app-region: drag;
+}
+
+.region-undragable {
+  app-region: no-drag;
+  -webkit-app-region: no-drag;
+}

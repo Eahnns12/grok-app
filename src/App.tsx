@@ -1,7 +1,18 @@
-import { Button } from "@/components/ui/button";
+import { useMediaQuery } from "./hooks/media-query-hook";
+import { TitleBar } from "./views/title-bar";
 
 const App = () => {
-  return <Button variant="secondary">Button</Button>;
+  const { isWindowControlsOverlay } = useMediaQuery();
+
+  return (
+    <div className="w-dvw h-dvh overflow-hidden overscroll-y-contain flex flex-col">
+      {isWindowControlsOverlay && <TitleBar />}
+
+      <section className="flex-1 mt-[env(titlebar-area-height)] overflow-hidden">
+        body
+      </section>
+    </div>
+  );
 };
 
 export { App };

@@ -4,8 +4,8 @@
 	"description": "grok api interface",
 	"start_url": "/grok-app/",
 	"scope": ".",
-	"theme_color": "#ffffff",
-	"background_color": "#ffffff",
+	"theme_color": "#000000",
+	"background_color": "#000000",
 	"display": "standalone",
 	"display_override": [
 		"window-controls-overlay",
