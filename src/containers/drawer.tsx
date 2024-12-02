@@ -1,19 +1,32 @@
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import {
   Sidebar,
   SidebarContent,
   SidebarGroup,
   SidebarGroupContent,
+  SidebarGroupLabel,
   SidebarHeader,
+  SidebarInput,
   SidebarMenu,
   SidebarMenuBadge,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarSeparator,
+  useSidebar,
 } from "@/components/ui/sidebar";
 import { BotMessageSquare, KeyRound, Settings } from "lucide-react";
 import icon from "@/assets/icon.svg";
-import { Link, NavLink } from "react-router";
+import { Link } from "react-router";
 
 const Drawer = ({ children }: { children: React.ReactNode }) => {
+  const { state } = useSidebar();
   const items = [
     {
       title: "Chat",
@@ -44,12 +57,13 @@ const Drawer = ({ children }: { children: React.ReactNode }) => {
                   to="/"
                   className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground"
                 >
-                  <img src={icon} className="rounded-md" />
+                  <img src={icon} className="rounded-md" alt="icon" />
                 </Link>
               </SidebarMenuButton>
             </SidebarMenuItem>
           </SidebarMenu>
         </SidebarHeader>
+        <SidebarSeparator />
         <SidebarContent>
           <SidebarGroup>
             <SidebarGroupContent>
@@ -66,6 +80,41 @@ const Drawer = ({ children }: { children: React.ReactNode }) => {
                   </SidebarMenuItem>
                 ))}
               </SidebarMenu>
+            </SidebarGroupContent>
+          </SidebarGroup>
+          <SidebarGroup>
+            <SidebarGroupLabel>Chats</SidebarGroupLabel>
+            <SidebarGroupContent>
+              {state === "expanded" && (
+                <SidebarMenu>
+                  <SidebarMenuItem>
+                    <div className="p-1">
+                      <Card className="shadow-none">
+                        <form>
+                          <CardHeader className="p-4 pb-0">
+                            <CardTitle className="text-sm">
+                              Subscribe to our newsletter
+                            </CardTitle>
+                            <CardDescription>
+                              Opt-in to receive updates and news about the
+                              sidebar.
+                            </CardDescription>
+                          </CardHeader>
+                          <CardContent className="grid gap-2.5 p-4">
+                            <SidebarInput type="email" placeholder="Email" />
+                            <Button
+                              className="w-full bg-sidebar-primary text-sidebar-primary-foreground shadow-none"
+                              size="sm"
+                            >
+                              Subscribe
+                            </Button>
+                          </CardContent>
+                        </form>
+                      </Card>
+                    </div>
+                  </SidebarMenuItem>
+                </SidebarMenu>
+              )}
             </SidebarGroupContent>
           </SidebarGroup>
         </SidebarContent>
