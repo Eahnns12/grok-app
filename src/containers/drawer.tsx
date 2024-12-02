@@ -3,33 +3,28 @@ import {
   SidebarContent,
   SidebarGroup,
   SidebarGroupContent,
+  SidebarHeader,
   SidebarMenu,
+  SidebarMenuBadge,
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import { Calendar, Home, Inbox, Search, Settings } from "lucide-react";
+import { BotMessageSquare, KeyRound, Settings } from "lucide-react";
+import icon from "@/assets/icon.svg";
+import { Link, NavLink } from "react-router";
 
 const Drawer = ({ children }: { children: React.ReactNode }) => {
   const items = [
     {
-      title: "Home",
-      url: "#",
-      icon: Home,
+      title: "Chat",
+      url: "/chat",
+      icon: BotMessageSquare,
     },
     {
-      title: "Inbox",
-      url: "#",
-      icon: Inbox,
-    },
-    {
-      title: "Calendar",
-      url: "#",
-      icon: Calendar,
-    },
-    {
-      title: "Search",
-      url: "#",
-      icon: Search,
+      title: "Keys",
+      url: "/key",
+      icon: KeyRound,
+      label: 0,
     },
     {
       title: "Settings",
@@ -41,6 +36,20 @@ const Drawer = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="w-full h-full flex flex-row">
       <Sidebar variant="floating" collapsible="icon" className="!h-full">
+        <SidebarHeader>
+          <SidebarMenu>
+            <SidebarMenuItem>
+              <SidebarMenuButton size="lg" className="w-fit">
+                <Link
+                  to="/"
+                  className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground"
+                >
+                  <img src={icon} className="rounded-md" />
+                </Link>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+          </SidebarMenu>
+        </SidebarHeader>
         <SidebarContent>
           <SidebarGroup>
             <SidebarGroupContent>
@@ -48,11 +57,12 @@ const Drawer = ({ children }: { children: React.ReactNode }) => {
                 {items.map((item) => (
                   <SidebarMenuItem key={item.title}>
                     <SidebarMenuButton asChild={true}>
-                      <a href={item.url}>
+                      <Link to={item.url}>
                         <item.icon />
                         <span>{item.title}</span>
-                      </a>
+                      </Link>
                     </SidebarMenuButton>
+                    <SidebarMenuBadge>{item.label}</SidebarMenuBadge>
                   </SidebarMenuItem>
                 ))}
               </SidebarMenu>
