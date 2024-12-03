@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 type state = boolean | undefined;
 
@@ -25,22 +25,22 @@ const useMediaQuery = (): {
 
     setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
 
-    mql.addEventListener("change", handleMobileBreakpoint);
+    mql.addEventListener('change', handleMobileBreakpoint);
 
     return () => {
-      mql.removeEventListener("change", handleMobileBreakpoint);
+      mql.removeEventListener('change', handleMobileBreakpoint);
     };
   }, []);
 
   useEffect(() => {
-    const mql = window.matchMedia("(display-mode: window-controls-overlay)");
+    const mql = window.matchMedia('(display-mode: window-controls-overlay)');
 
     setIsWindowControlsOverlay(mql.matches);
 
-    mql.addEventListener("change", handleWindowControlsOverlay);
+    mql.addEventListener('change', handleWindowControlsOverlay);
 
     return () => {
-      mql.removeEventListener("change", handleWindowControlsOverlay);
+      mql.removeEventListener('change', handleWindowControlsOverlay);
     };
   }, []);
 

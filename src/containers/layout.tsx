@@ -1,21 +1,21 @@
-import { SidebarTrigger } from "@/components/ui/sidebar";
-import { useMediaQuery } from "@/hooks/media-query-hook";
-import { TitleBar } from "@/containers/title-bar";
-import { Drawer } from "@/containers/drawer";
-import { ThemeController } from "@/containers/theme-controller";
-import { Badge } from "@/components/ui/badge";
+import { SidebarTrigger } from '@/components/ui/sidebar';
+import { useMediaQuery } from '@/hooks/media-query-hook';
+import { TitleBar } from '@/containers/title-bar';
+import { Drawer } from '@/containers/drawer';
+import { ThemeController } from '@/containers/theme-controller';
+import { Badge } from '@/components/ui/badge';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const { isWindowControlsOverlay } = useMediaQuery();
 
   return (
-    <div className="w-dvw h-dvh flex flex-col">
+    <div className="flex h-dvh w-dvw flex-col">
       {isWindowControlsOverlay && (
         <TitleBar>
-          <nav className="w-full h-full flex flex-row items-center px-1 justify-between">
+          <nav className="flex h-full w-full flex-row items-center justify-between px-1">
             <SidebarTrigger className="region-undragable" />
 
-            <div className="region-undragable flex flex-row gap-2 items-center">
+            <div className="region-undragable flex flex-row items-center gap-2">
               <Badge variant="outline" className="capitalize">
                 {import.meta.env.MODE}
               </Badge>
@@ -26,18 +26,18 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       )}
 
       <section
-        className="flex-1 mt-[env(titlebar-area-height)] select-none ease-linear duration-300"
-        style={{ contain: "strict" }}
+        className="mt-[env(titlebar-area-height)] flex-1 select-none duration-300 ease-linear"
+        style={{ contain: 'strict' }}
       >
         <Drawer>
-          <div className="w-full h-full flex flex-col">
+          <div className="flex h-full w-full flex-col">
             {!isWindowControlsOverlay && (
-              <nav className="m-2 flex flex-row justify-between items-center">
+              <nav className="m-2 flex flex-row items-center justify-between">
                 <SidebarTrigger />
                 <ThemeController />
               </nav>
             )}
-            <main className="flex-1 m-2">{children}</main>
+            <main className="m-2 flex-1 overflow-hidden">{children}</main>
           </div>
         </Drawer>
       </section>

@@ -1,11 +1,11 @@
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button';
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
+} from '@/components/ui/card';
 import {
   Sidebar,
   SidebarContent,
@@ -20,35 +20,35 @@ import {
   SidebarMenuItem,
   SidebarSeparator,
   useSidebar,
-} from "@/components/ui/sidebar";
-import { BotMessageSquare, KeyRound, Settings } from "lucide-react";
-import icon from "@/assets/icon.svg";
-import { Link } from "react-router";
+} from '@/components/ui/sidebar';
+import { BotMessageSquare, KeyRound, Settings } from 'lucide-react';
+import icon from '@/assets/icon.svg';
+import { Link } from 'react-router';
 
 const Drawer = ({ children }: { children: React.ReactNode }) => {
   const { state } = useSidebar();
 
   const items = [
     {
-      title: "Chat",
-      url: "/chat",
+      title: 'Chat',
+      url: '/chat',
       icon: BotMessageSquare,
     },
     {
-      title: "Keys",
-      url: "/keys",
+      title: 'Keys',
+      url: '/keys',
       icon: KeyRound,
       label: 0,
     },
     {
-      title: "Settings",
-      url: "#",
+      title: 'Settings',
+      url: '#',
       icon: Settings,
     },
   ];
 
   return (
-    <div className="w-full h-full flex flex-row">
+    <div className="flex h-full w-full flex-row">
       <Sidebar variant="floating" collapsible="icon" className="!h-full">
         <SidebarHeader>
           <SidebarMenu>
@@ -86,7 +86,7 @@ const Drawer = ({ children }: { children: React.ReactNode }) => {
           <SidebarGroup>
             <SidebarGroupLabel>Chats</SidebarGroupLabel>
             <SidebarGroupContent>
-              {state === "expanded" && (
+              {state === 'expanded' && (
                 <SidebarMenu>
                   <SidebarMenuItem>
                     <div className="p-1">

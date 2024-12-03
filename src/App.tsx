@@ -1,6 +1,6 @@
-import { Routes, Route, Outlet } from "react-router";
-import { Layout } from "@/containers/layout";
-import { KeysPage } from "./pages/keys-page";
+import { Routes, Route, Outlet } from 'react-router';
+import { Layout } from '@/containers/layout';
+import { KeysPage } from './pages/keys-page';
 
 const App = () => {
   return (

@@ -1,6 +1,6 @@
-import { Moon, Sun, SunMoon } from "lucide-react";
-import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
-import { useTheme } from "@/hooks/theme-hook";
+import { Moon, Sun, SunMoon } from 'lucide-react';
+import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
+import { useTheme } from '@/hooks/theme-hook';
 
 const ThemeController = () => {
   const { setTheme } = useTheme();
@@ -11,7 +11,7 @@ const ThemeController = () => {
         value="light"
         aria-label="Toggle light"
         size="sm"
-        onClick={() => setTheme("light")}
+        onClick={() => setTheme('light')}
       >
         <Sun />
       </ToggleGroupItem>
@@ -19,7 +19,7 @@ const ThemeController = () => {
         value="dark"
         aria-label="Toggle dark"
         size="sm"
-        onClick={() => setTheme("dark")}
+        onClick={() => setTheme('dark')}
       >
         <Moon />
       </ToggleGroupItem>
@@ -27,7 +27,7 @@ const ThemeController = () => {
         value="system"
         aria-label="Toggle system"
         size="sm"
-        onClick={() => setTheme("system")}
+        onClick={() => setTheme('system')}
       >
         <SunMoon />
       </ToggleGroupItem>
