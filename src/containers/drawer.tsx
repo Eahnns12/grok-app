@@ -27,6 +27,7 @@ import { Link } from "react-router";
 
 const Drawer = ({ children }: { children: React.ReactNode }) => {
   const { state } = useSidebar();
+
   const items = [
     {
       title: "Chat",
@@ -35,7 +36,7 @@ const Drawer = ({ children }: { children: React.ReactNode }) => {
     },
     {
       title: "Keys",
-      url: "/key",
+      url: "/keys",
       icon: KeyRound,
       label: 0,
     },
