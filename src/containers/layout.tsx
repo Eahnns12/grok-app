@@ -4,6 +4,7 @@ import { TitleBar } from '@/containers/title-bar';
 import { Drawer } from '@/containers/drawer';
 import { ThemeController } from '@/containers/theme-controller';
 import { Badge } from '@/components/ui/badge';
+import { Toaster } from '@/components/ui/sonner';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const { isWindowControlsOverlay } = useMediaQuery();
@@ -40,6 +41,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             <main className="m-2 flex-1 overflow-hidden">{children}</main>
           </div>
         </Drawer>
+        <Toaster />
       </section>
     </div>
   );
